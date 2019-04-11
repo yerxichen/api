@@ -14,17 +14,17 @@ logging:
 
 spring:
   datasource:
-   ############  JDBC 配置  ###################
+    ############  JDBC 配置  ###################
     type: com.alibaba.druid.pool.DruidDataSource
     ####
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
-#    password: 123456
-#    url: jdbc:mysql://192.168.57.130:3306/mydb?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    #    password: 123456
+    #    url: jdbc:mysql://192.168.57.130:3306/mydb?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
     password: mhp2g007
     url: jdbc:mysql://localhost:3306/mydb?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false
 
-   ############# Druid 连接池配置  #################
+    ############# Druid 连接池配置  #################
     druid:
       initial-size: 1
       ### 最大的活跃连接数 ####
@@ -61,11 +61,22 @@ spring:
         reset-enable: true
         login-username: admin
         login-password: admin
-#jpa配置
+  ## 视图解析器 ##
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .jsp
+  #jpa配置
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: false
+
+
+## mybatis ##
+mybatis:
+  mapper-locations: mappers/*.xml
+  type-aliases-package: cn.yer.api.entity
 
 #  http:
 #    multipart:
